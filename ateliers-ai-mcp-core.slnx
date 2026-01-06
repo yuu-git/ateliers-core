@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/solution items/">
+    <File Path=".github/workflows/ci-cd.yml" />
+    <File Path=".gitignore" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Ateliers.Core/Ateliers.Core.csproj" />
+  </Folder>
+  <Folder Name="/src/unit tests/">
+    <Project Path="src/Ateliers.Core.UnitTests/Ateliers.Core.UnitTests.csproj" />
+  </Folder>
+</Solution>
