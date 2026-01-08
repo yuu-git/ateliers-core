@@ -8,7 +8,7 @@ namespace Ateliers.Core.UnitTests.Context;
 /// </summary>
 public class ExecutionContextScopeTests
 {
-    [Fact]
+    [Fact(DisplayName = @"コンストラクタは新しいコンテキストを作成する")]
     public void Constructor_ShouldCreateNewContext()
     {
         // Arrange & Act
@@ -21,7 +21,7 @@ public class ExecutionContextScopeTests
         Assert.Equal("TestProperties", current.Properties);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"Dispose は以前のコンテキストを復元する")]
     public void Dispose_ShouldRestorePreviousContext()
     {
         // Arrange
@@ -45,7 +45,7 @@ public class ExecutionContextScopeTests
         Assert.Null(contextAfterScope);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"ネストされたスコープは階層を維持する")]
     public void Nested_Scopes_ShouldMaintainHierarchy()
     {
         // Arrange & Act
@@ -72,7 +72,7 @@ public class ExecutionContextScopeTests
         Assert.Equal(correlationId1, correlationIdAfterInner);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"非同期操作はコンテキストを維持する")]
     public async Task Async_Operations_ShouldMaintainContext()
     {
         // Arrange & Act
@@ -90,7 +90,7 @@ public class ExecutionContextScopeTests
         Assert.Equal(correlationId1, correlationId2);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"コンストラクタは null のプロパティで動作する")]
     public void Constructor_WithNullProperties_ShouldWork()
     {
         // Arrange & Act
@@ -102,7 +102,7 @@ public class ExecutionContextScopeTests
         Assert.Null(current.Properties);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"連続する複数のスコープは異なる CorrelationId を持つ")]
     public void Multiple_Sequential_Scopes_ShouldHaveDifferentCorrelationIds()
     {
         // Arrange & Act

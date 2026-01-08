@@ -8,7 +8,7 @@ namespace Ateliers.Core.UnitTests.Logging;
 /// </summary>
 public class ConsoleLoggerTests
 {
-    [Fact]
+    [Fact(DisplayName = @"Log メソッドは例外をスローしない")]
     public void Log_ShouldNotThrow()
     {
         // Arrange
@@ -33,7 +33,7 @@ public class ConsoleLoggerTests
         Assert.Null(exception);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"例外を含むログは例外をスローしない")]
     public void Log_WithException_ShouldNotThrow()
     {
         // Arrange
@@ -50,7 +50,7 @@ public class ConsoleLoggerTests
         Assert.Null(exception);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"カテゴリを含むログは例外をスローしない")]
     public void Log_WithCategory_ShouldNotThrow()
     {
         // Arrange

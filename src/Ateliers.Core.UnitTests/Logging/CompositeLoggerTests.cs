@@ -8,7 +8,7 @@ namespace Ateliers.Core.UnitTests.Logging;
 /// </summary>
 public class CompositeLoggerTests
 {
-    [Fact]
+    [Fact(DisplayName = @"Log メソッドはすべてのロガーに転送する")]
     public void Log_ShouldForwardToAllLoggers()
     {
         // Arrange
@@ -30,7 +30,7 @@ public class CompositeLoggerTests
         Assert.Equal("Test message", logger2.Entries[0].Message);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"失敗するロガーを含むログは例外をスローしない")]
     public void Log_WithFailingLogger_ShouldNotThrow()
     {
         // Arrange
@@ -51,7 +51,7 @@ public class CompositeLoggerTests
         Assert.Single(logger1.Entries);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"コンストラクタは null のロガーで例外をスローする")]
     public void Constructor_WithNullLoggers_ShouldThrow()
     {
         // Act & Assert
@@ -61,7 +61,7 @@ public class CompositeLoggerTests
         });
     }
 
-    [Fact]
+    [Fact(DisplayName = @"カテゴリを含むログはカテゴリを転送する")]
     public void Log_WithCategory_ShouldForwardCategory()
     {
         // Arrange

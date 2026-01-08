@@ -11,7 +11,7 @@ namespace Ateliers.Core.UnitTests.DependencyInjection;
 /// </summary>
 public class LoggingServiceCollectionExtensionsTests
 {
-    [Fact]
+    [Fact(DisplayName = @"AddAteliersLogging はロガーを登録すること")]
     public void AddAteliersLogging_ShouldRegisterLogger()
     {
         // Arrange
@@ -26,7 +26,7 @@ public class LoggingServiceCollectionExtensionsTests
         Assert.NotNull(logger);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"AddAteliersLogging は設定を適用すること")]
     public void AddAteliersLogging_WithConfiguration_ShouldApplyConfiguration()
     {
         // Arrange
@@ -53,7 +53,7 @@ public class LoggingServiceCollectionExtensionsTests
         Assert.Equal("Test", memoryLogger.Entries[0].Category);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"AddAteliersLogging は設定なしでデフォルトのコンソールロガーを使用すること")]
     public void AddAteliersLogging_WithoutConfiguration_ShouldUseDefaultConsoleLogger()
     {
         // Arrange
@@ -71,7 +71,7 @@ public class LoggingServiceCollectionExtensionsTests
         Assert.Null(exception);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"AddAteliersLogging は複数のロガーでコンポジットロガーを作成すること")]
     public void AddAteliersLogging_WithMultipleLoggers_ShouldCreateCompositeLogger()
     {
         // Arrange
@@ -96,7 +96,7 @@ public class LoggingServiceCollectionExtensionsTests
         Assert.Single(memoryLogger.Entries);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"AddAteliersLogging はカスタムロガーを登録すること")]
     public void AddAteliersLogging_WithCustomLogger_ShouldRegisterCustomLogger()
     {
         // Arrange

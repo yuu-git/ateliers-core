@@ -7,7 +7,7 @@ namespace Ateliers.Core.UnitTests.Context;
 /// </summary>
 public class ExecutionContextTests
 {
-    [Fact]
+    [Fact(DisplayName = @"コンストラクタはプロパティを設定する")]
     public void Constructor_ShouldSetProperties()
     {
         // Arrange & Act
@@ -18,7 +18,7 @@ public class ExecutionContextTests
         Assert.Equal("TestProperties", context.Properties);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"Current はスコープが作成されていない場合は null")]
     public void Current_ShouldBeNull_WhenNoScopeCreated()
     {
         // Act
@@ -28,7 +28,7 @@ public class ExecutionContextTests
         Assert.Null(current);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"BeginScope は Current を設定する")]
     public void BeginScope_ShouldSetCurrent()
     {
         // Arrange
@@ -44,7 +44,7 @@ public class ExecutionContextTests
         Assert.Equal("ScopeProperties", current.Properties);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"BeginScope の Dispose は以前のコンテキストを復元する")]
     public void BeginScope_Dispose_ShouldRestorePreviousContext()
     {
         // Arrange
@@ -64,7 +64,7 @@ public class ExecutionContextTests
         Assert.Null(currentAfterDispose);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"BeginScope のネストは階層を作成する")]
     public void BeginScope_Nested_ShouldCreateHierarchy()
     {
         // Arrange
@@ -91,7 +91,7 @@ public class ExecutionContextTests
         }
     }
 
-    [Fact]
+    [Fact(DisplayName = @"BeginScope の非同期操作はコンテキストを維持する")]
     public async Task BeginScope_Async_ShouldMaintainContext()
     {
         // Arrange
@@ -113,7 +113,7 @@ public class ExecutionContextTests
         Assert.Equal(correlationId1, correlationId2);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"BeginScope は null のプロパティで動作する")]
     public void BeginScope_WithNullProperties_ShouldWork()
     {
         // Arrange

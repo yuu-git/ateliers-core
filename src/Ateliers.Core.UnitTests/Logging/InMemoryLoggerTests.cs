@@ -8,7 +8,7 @@ namespace Ateliers.Core.UnitTests.Logging;
 /// </summary>
 public class InMemoryLoggerTests
 {
-    [Fact(DisplayName = @"ログファイルが作成されること")]
+    [Fact(DisplayName = @"ログエントリが保存されること")]
     public void Log_ShouldStoreEntry()
     {
         // Arrange
@@ -24,7 +24,7 @@ public class InMemoryLoggerTests
         Assert.Equal(LogLevel.Information, logger.Entries[0].Level);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"最小ログレベルが尊重されること")]
     public void Log_ShouldRespectMinimumLevel()
     {
         // Arrange
@@ -40,7 +40,7 @@ public class InMemoryLoggerTests
         Assert.Equal("Info message", logger.Entries[0].Message);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"カテゴリを含むログはカテゴリを保存すること")]
     public void Log_WithCategory_ShouldStoreCategory()
     {
         // Arrange
@@ -59,7 +59,7 @@ public class InMemoryLoggerTests
         Assert.Equal("TestCategory", logger.Entries[0].Category);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"Clear メソッドはすべてのエントリを削除すること")]
     public void Clear_ShouldRemoveAllEntries()
     {
         // Arrange
@@ -75,7 +75,7 @@ public class InMemoryLoggerTests
         Assert.Empty(logger.Entries);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"すべてのログレベルが動作すること")]
     public void Log_AllLevels_ShouldWork()
     {
         // Arrange
@@ -100,7 +100,7 @@ public class InMemoryLoggerTests
         Assert.Equal(LogLevel.Critical, logger.Entries[5].Level);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"例外を含むログは例外を保存すること")]
     public void Log_WithException_ShouldStoreException()
     {
         // Arrange

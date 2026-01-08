@@ -11,7 +11,7 @@ namespace Ateliers.Core.UnitTests.Integration;
 /// </summary>
 public class LoggingWithExecutionContextTests
 {
-    [Fact]
+    [Fact(DisplayName = @"実行コンテキストを含むロギングは CorrelationId を含むこと")]
     public void LoggingWithContext_ShouldIncludeCorrelationId()
     {
         // Arrange
@@ -47,7 +47,7 @@ public class LoggingWithExecutionContextTests
         Assert.Equal("Test message", memoryLogger.Entries[0].Message);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"ネストされたスコープは異なる CorrelationId を持つこと")]
     public void NestedScopes_ShouldHaveDifferentCorrelationIds()
     {
         // Arrange
@@ -90,7 +90,7 @@ public class LoggingWithExecutionContextTests
         Assert.Equal(outerCorrelationId, memoryLogger.Entries[2].CorrelationId);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"非同期操作は CorrelationId を維持すること")]
     public async Task AsyncOperations_ShouldMaintainCorrelationId()
     {
         // Arrange
@@ -125,7 +125,7 @@ public class LoggingWithExecutionContextTests
             memoryLogger.Entries[1].CorrelationId);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"複数のロガーは実行コンテキストを含むログをすべて受信すること")]
     public void MultipleLoggers_WithContext_ShouldAllReceiveLogs()
     {
         // Arrange

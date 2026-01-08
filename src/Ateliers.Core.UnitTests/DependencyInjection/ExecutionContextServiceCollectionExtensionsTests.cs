@@ -9,7 +9,7 @@ namespace Ateliers.Core.UnitTests.DependencyInjection;
 /// </summary>
 public class ExecutionContextServiceCollectionExtensionsTests
 {
-    [Fact]
+    [Fact(DisplayName = @"AddAteliersExecutionContext はコンテキストを登録すること")]
     public void AddAteliersExecutionContext_ShouldRegisterContext()
     {
         // Arrange
@@ -26,7 +26,7 @@ public class ExecutionContextServiceCollectionExtensionsTests
         Assert.NotNull(context);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"AddAteliersExecutionContext は現在のコンテキストがない場合は新しいコンテキストを作成すること")]
     public void AddAteliersExecutionContext_ShouldCreateNewContextWhenNoCurrentContext()
     {
         // Arrange
@@ -43,7 +43,7 @@ public class ExecutionContextServiceCollectionExtensionsTests
         Assert.NotNull(context.CorrelationId);
     }
 
-    [Fact]
+    [Fact(DisplayName = @"AddAteliersExecutionContext はスコープのライフタイムであること")]
     public void AddAteliersExecutionContext_ShouldBeScopedLifetime()
     {
         // Arrange
